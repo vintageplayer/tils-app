@@ -1,14 +1,16 @@
 // pages/index.js
-import TableOfContents from "../pages/components/TableOfContent.js";
+import EditorPage from "./components/EditorPage.js";
+import Link from "next/link";
 
 const Home = () => {
   return (
     <div>
       <div>
         <h1>Today I learn</h1>
+        <Link href="/table-of-contents">Go to Table of Contents</Link>
       </div>
       <div>
-        <TableOfContents></TableOfContents>
+        <EditorPage></EditorPage>
       </div>
     </div>
   );

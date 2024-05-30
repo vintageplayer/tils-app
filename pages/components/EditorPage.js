@@ -1,5 +1,5 @@
 import React from "react";
-import MyEditor from "../pages/editor";
+import MyEditor from "../components/Editor";
 
 const EditorPage = () => {
   const handleSave = (content) => {

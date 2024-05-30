@@ -7,6 +7,7 @@ const Note = () => {
   const router = useRouter();
   const { id } = router.query;
   const [htmlContent, setHtmlContent] = useState("");
+  const [creationDate, setCreationDate] = useState("");
 
   useEffect(() => {
     if (id) {
@@ -15,9 +16,12 @@ const Note = () => {
           const response = await fetch(`http://127.0.0.1:5000/notes/${id}`);
           if (response.ok) {
             const responseData = await response.json();
-            const htmlContent = marked(responseData);
+            console.log("response data", responseData);
+            const creationDate = responseData.creation_date;
+            const htmlContent = marked(responseData.content);
             const safeHTML = DOMPurify.sanitize(htmlContent);
             setHtmlContent(safeHTML);
+            setCreationDate(creationDate);
           }
         } catch (error) {
           console.log("Error fetching note", error);
@@ -34,6 +38,7 @@ const Note = () => {
   return (
     <div>
       <h1>Note ID: {id}</h1>
+      <p>Esther: {creationDate}</p>
       <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </div>
   );
