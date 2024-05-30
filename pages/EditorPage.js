@@ -3,7 +3,7 @@ import MyEditor from "../pages/editor";
 
 const EditorPage = () => {
   const handleSave = (content) => {
-    console.log("Saved Content:");
+    console.log("Saved Content");
     // Here you can handle the saved content, e.g., send it to a server or update your state
   };
 
