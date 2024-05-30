@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+h1 {
+  @apply text-3xl font-bold tracking-tight md:text-4xl mb-4;
+}
+
+h3 {
+  @apply text-2xl font-bold mt-2 mb-2;
+}
+
+hr {
+  @apply mb-2;
+}
+
+ul {
+  @apply list-disc pl-5;
+}
