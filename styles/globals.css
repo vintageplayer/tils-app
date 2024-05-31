@@ -4,26 +4,13 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #f0f0f0; /* Light grey */
+  color: black; /* Ensure text is visible on a light grey background */
 }
 
 @layer utilities {
@@ -34,6 +21,14 @@ body {
 
 h1 {
   @apply text-3xl font-bold tracking-tight md:text-4xl mb-4;
+}
+h2 {
+  @apply text-2xl font-bold text-gray-800;
+  background-color: #f5f7fa; /* light gray background */
+  padding: 0.5rem 1rem; /* padding for spacing */
+  border-radius: 0.25rem; /* rounded corners */
+  display: inline-block; /* ensures the background wraps tightly around the text */
+  margin-bottom: 1rem; /* margin for spacing */
 }
 
 h3 {
