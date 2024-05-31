@@ -8,6 +8,7 @@ const Note = () => {
   const { id } = router.query;
   const [htmlContent, setHtmlContent] = useState("");
   const [creationDate, setCreationDate] = useState("");
+  const [topic, setTopic] = useState("");
 
   useEffect(() => {
     if (id) {
@@ -19,9 +20,12 @@ const Note = () => {
             console.log("response data", responseData);
             const creationDate = responseData.creation_date;
             const htmlContent = marked(responseData.content);
+            const topic = responseData.topic;
+            console.log("topic", topic);
             const safeHTML = DOMPurify.sanitize(htmlContent);
             setHtmlContent(safeHTML);
             setCreationDate(creationDate);
+            setTopic(topic);
           }
         } catch (error) {
           console.log("Error fetching note", error);
@@ -38,8 +42,14 @@ const Note = () => {
   return (
     // <div className="mt-10 p-5 mx-auto max-w-2xl bg-white shadow-lg rounded-lg">
     <div className="mt-10 p-10 mx-auto max-w-2xl shadow-lg rounded-lg mb-10 bg-gray-100">
-      <p>Esther: {creationDate}</p>
       <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <p className="text-gray-500 mt-3">Esther: {creationDate}</p>
+      <a
+        href="/table-of-contents"
+        className="text-blue-500 hover:text-blue-700 mt-1 inline-block"
+      >
+        Back to all notes
+      </a>
     </div>
   );
 };

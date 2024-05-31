@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 import "react-quill/dist/quill.snow.css";
 
 // Dynamically import ReactQuill to prevent SSR issues
@@ -8,7 +7,6 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const MyEditor = ({ onSave }) => {
   const [value, setValue] = useState("");
-  const router = useRouter();
 
   const handleChange = (content) => {
     setValue(content);
