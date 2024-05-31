@@ -37,7 +37,7 @@ const Note = () => {
 
   return (
     // <div className="mt-10 p-5 mx-auto max-w-2xl bg-white shadow-lg rounded-lg">
-    <div className="mt-10 p-10 mx-auto max-w-2xl shadow-lg rounded-lg mb-10">
+    <div className="mt-10 p-10 mx-auto max-w-2xl shadow-lg rounded-lg mb-10 bg-gray-100">
       <p>Esther: {creationDate}</p>
       <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </div>
